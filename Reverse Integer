@@ -1,0 +1,23 @@
+#include <string>
+class Solution {
+public:
+    int reverse(int x) {
+        string prev = to_string(x);
+        bool neg = false;
+        string rev;
+        int end = 0;
+        if(prev[0] == '-') {
+            end = 1;
+            neg = true;
+        }
+        for(int i = prev.length()-1; i >= end; i--) {
+            rev = rev + prev[i];
+        }
+        if(neg)
+            rev = '-' + rev;
+        long ans = stol(rev);
+        if(ans < pow(-2,31) || ans > pow(2,31) -1)
+            return 0;
+        return ans;
+    }
+};
